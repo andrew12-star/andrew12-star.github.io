@@ -1,0 +1,29 @@
+---
+about:
+  template: jolla
+  id: about-block
+  image: "img/my_image.jpg"
+  links:
+
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/andrewgqian
+    - icon: envelope
+      text: Email
+      href: "mailto:andrewqian12@gmail.com"   
+---
+
+::: {#about-block}
+:::
+
+# Welcome to my website!
+
+My name is Andrew Qian, and I'm a post-baccalaureate researcher and MS in Clinical Research student at Case Western Reserve University, pursuing the physician-scientist track. I currently work across three research environments: the Yu-Shang Lee Lab at Cleveland Clinic Lerner Research Institute (spinal cord injury and beta-amyloid pathology), a project studying high school EAPs and EMS protocols in regards to spine boarding during transfer at University Hospitals, and a retrospective chart review on carpal tunnel syndrome in pregnant mothers at MetroHealth. My research background centers on orthopedics and spinal cord injuries. I'm currently applying to medical school this cycle. 
+
+On this website, you will find my published articles and my CV. 
+
+Please feel free to [contact me](mailto:andrewqian12@gmail.com) if you have any questions or would like to discuss potential projects.
+
+
+
+
