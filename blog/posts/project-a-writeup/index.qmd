@@ -1,0 +1,42 @@
+---
+title: "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings"
+author: "Andrew Qian"
+date: 2026-09-28
+---
+
+For Project A, I set out to find out what predicts blood pressure and cardiom-etabolic risk in U.S. adults, using data from the National Health and Nutrition Examination Survey (NHANES) 2017–March 2020 cycle. This post walks through how I built the dashboard, what I hypothesized going in, the kinds of analyses I ran, and what I actually found.
+
+## Getting the Data
+
+I first pulled six NHANES data files using the `nhanesA` R package: Demographics, Blood Pressure, Body Measures, Total Cholesterol, Smoking, and Diabetes. After merging them on each subject's unique identifier (`SEQN`), I filtered to adults ages 21–79 who completed both the interview and physical exam portions of the survey, then cleaned each variable — recoding missing/refused responses, collapsing education into four categories, and averaging three systolic blood pressure readings per person into a single outcome measure.
+
+## Study 1: Comparing Groups
+
+For my first set of analyses, I wanted to see how blood pressure and related risk factors varied across demographic and lifestyle groups. Going in, I expected:
+
+- Men to show somewhat higher blood pressure than women, based on known physiological differences.
+- Non-Hispanic Black adults to show higher blood pressure than other groups, consistent with patterns reported in public health research.
+- Smokers to show a higher rate of diabetes diagnosis than non-smokers.
+- Meaningful differences in educational attainment across race/ethnicity groups.
+
+I tested these using a two-sample t-test (comparing blood pressure by sex), a one-way ANOVA with Tukey pairwise comparisons (blood pressure across six race/ethnicity groups), a 2x2 table analysis (smoking history and diabetes diagnosis, using relative risk, odds ratio, and risk difference), and a chi-square test of independence (education level and race/ethnicity).
+
+Every one of these hypotheses was confirmed by the data, all with strong statistical significance. Men had meaningfully higher blood pressure than women. Non-Hispanic Black adults stood apart from every other racial/ethnic group with the highest average blood pressure. Smokers had a notably elevated diabetes rate compared to non-smokers. And Finally, education level varied substantially by race/ethnicity, mirroring documented structural patterns in the U.S.
+
+## Study 2: Can BMI Predict Blood Pressure?
+
+For my second study, I shifted from comparing groups to building a predictive model. My research question was: how effectively does BMI predict systolic blood pressure, after adjusting for age, sex, race/ethnicity, education, smoking, and diabetes status?
+
+This required a different approach. I split my cleaned data into a 75% training sample and a 25% test sample, applied single imputation (using the `mice` package) to handle a small amount of missing data in a few predictors, and found that my outcome (blood pressure) needed a log transformation to correct for right-skew before modeling.
+
+I then fit two competing linear regression models. First, a "Big Model" with all seven candidate predictors, and a "Small Model" dropping smoking and diabetes status, which had turned out not to be meaningful predictors once the others were included.
+
+The result surprised me. I had expected BMI to remain a clearly significant predictor of blood pressure even after adjustment, but it turned out to be only marginally associated (p = 0.082) once age, sex, race/ethnicity, and education were accounted for. Age emerged as by far the strongest predictor. When I compared my two models, both in-sample (R², AIC, BIC, residual diagnostics) and on the held-out test sample (RMSPE, MAPE, validated R²), the simpler model performed just as well as the full one, meaning smoking and diabetes status added no real predictive value here.
+
+## Building the Dashboard
+
+The dashboard on this site separates both studies into two tabs, each with a short background card, the key visualizations, and a bullet-point summary of findings. I deliberately kept it lighter than the full statistical reports (which include every assumption check, full model output, and detailed write-up). I wanted to provide a quick, visual overview that a reader could scan in under a minute, while the complete analysis is in the Quarto reports.
+
+## Reflections
+
+If I were to extend this work, I'd want to test whether BMI's relationship with blood pressure changes with age (an interaction effect), and consider a more direct measure of body composition, like waist circumference, instead of BMI alone, as BMI isn't as effective as a measure as some other may be. This project reinforced something I already knew from Study 1: demographic and social factors such as age, race, education, often carry more predictive weight for health outcomes than a single biometric measurement such as BMI, and any model that ignores them risks overstating how much a variable like BMI might predict on its own.

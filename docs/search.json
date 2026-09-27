@@ -7,11 +7,18 @@
     "text": "Download current CV"
   },
   {
-    "objectID": "photography/index.html",
-    "href": "photography/index.html",
-    "title": "Photography",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
     "section": "",
-    "text": "As a wizard and scholar of Middle-earth, I have been studying the magic of the natural world for centuries. Through my self-portraits, I aim to capture the essence of my own being and reflect on my own journey through time. Each photograph is a reflection of my own experiences and emotions. Through my photography, I hope to offer a glimpse into my life as a scholar and adventurer, and inspire others to reflect on their own journeys through the world.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nView the tutorial for this template (+ download link)"
+    "text": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nAndrew Qian\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to my website!",
+    "section": "",
+    "text": "LinkedIn\n  \n  \n    \n     Email\n  \n\n\n\n\nWelcome to my website!\nMy name is Andrew Qian, and I’m a post-baccalaureate researcher and MS in Clinical Research student at Case Western Reserve University, pursuing the physician-scientist track. I currently work across three research environments: the Yu-Shang Lee Lab at Cleveland Clinic Lerner Research Institute (spinal cord injury and beta-amyloid pathology), a project studying high school EAPs and EMS protocols in regards to spine boarding during transfer at University Hospitals, and a retrospective chart review on carpal tunnel syndrome in pregnant mothers at MetroHealth. My research background centers on orthopedics and spinal cord injuries. I’m currently applying to medical school this cycle.\nOn this website, you will find my published articles and my CV.\nPlease feel free to contact me if you have any questions or would like to discuss potential projects."
   },
   {
     "objectID": "projects/index.html",
@@ -21,24 +28,45 @@
     "text": "Download current preprint"
   },
   {
-    "objectID": "projects/index.html#the-languages-of-middle-earth",
-    "href": "projects/index.html#the-languages-of-middle-earth",
-    "title": "Projects",
+    "objectID": "blog/posts/project-a-writeup/index.html",
+    "href": "blog/posts/project-a-writeup/index.html",
+    "title": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings",
     "section": "",
-    "text": "arXiv Preprint | Code\nOver the centuries, I have devoted countless hours to deciphering and translating the ancient scripts and dialects of the various peoples of Middle-earth. My goal is to gain a deeper understanding of the cultures and histories of these peoples by studying their languages. Currently, I am working on a monograph that explores the linguistic roots of the Elvish languages. Through extensive research and analysis, I hope to shed light on the connections between the different dialects of Elvish and their origins. This project has been particularly challenging, as Elvish is a complex and nuanced language, but I am determined to see it through to completion."
+    "text": "For Project A, I set out to find out what predicts blood pressure and cardiom-etabolic risk in U.S. adults, using data from the National Health and Nutrition Examination Survey (NHANES) 2017–March 2020 cycle. This post walks through how I built the dashboard, what I hypothesized going in, the kinds of analyses I ran, and what I actually found."
   },
   {
-    "objectID": "projects/index.html#the-history-of-the-war-of-the-ring",
-    "href": "projects/index.html#the-history-of-the-war-of-the-ring",
-    "title": "Projects",
-    "section": "The History of the War of the Ring",
-    "text": "The History of the War of the Ring\n\narXiv Preprint | Code\nI am creating a comprehensive and detailed history of the conflict that goes beyond the surface-level events. By gathering information from a variety of sources, including my own memories, written accounts, and oral histories, I hope to shed new light on this important period in Middle-earth’s history and provide valuable insights into the motivations and actions of the various players involved.\n\nView the tutorial for this template (+ download link)"
+    "objectID": "blog/posts/project-a-writeup/index.html#getting-the-data",
+    "href": "blog/posts/project-a-writeup/index.html#getting-the-data",
+    "title": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings",
+    "section": "Getting the Data",
+    "text": "Getting the Data\nI first pulled six NHANES data files using the nhanesA R package: Demographics, Blood Pressure, Body Measures, Total Cholesterol, Smoking, and Diabetes. After merging them on each subject’s unique identifier (SEQN), I filtered to adults ages 21–79 who completed both the interview and physical exam portions of the survey, then cleaned each variable — recoding missing/refused responses, collapsing education into four categories, and averaging three systolic blood pressure readings per person into a single outcome measure."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to my website!",
-    "section": "",
-    "text": "LinkedIn\n  \n  \n    \n     Email\n  \n\n\n\n\nWelcome to my website!\nMy name is Andrew Qian, and I’m a post-baccalaureate researcher and MS in Clinical Research student at Case Western Reserve University, pursuing the physician-scientist track. I currently work across three research environments: the Yu-Shang Lee Lab at Cleveland Clinic Lerner Research Institute (spinal cord injury and beta-amyloid pathology), a project studying high school EAPs and EMS protocols in regards to spine boarding during transfer at University Hospitals, and a retrospective chart review on carpal tunnel syndrome in pregnant mothers at MetroHealth. My research background centers on orthopedics and spinal cord injuries. I’m currently applying to medical school this cycle.\nOn this website, you will find my published articles and my CV.\nPlease feel free to contact me if you have any questions or would like to discuss potential projects."
+    "objectID": "blog/posts/project-a-writeup/index.html#study-1-comparing-groups",
+    "href": "blog/posts/project-a-writeup/index.html#study-1-comparing-groups",
+    "title": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings",
+    "section": "Study 1: Comparing Groups",
+    "text": "Study 1: Comparing Groups\nFor my first set of analyses, I wanted to see how blood pressure and related risk factors varied across demographic and lifestyle groups. Going in, I expected:\n\nMen to show somewhat higher blood pressure than women, based on known physiological differences.\nNon-Hispanic Black adults to show higher blood pressure than other groups, consistent with patterns reported in public health research.\nSmokers to show a higher rate of diabetes diagnosis than non-smokers.\nMeaningful differences in educational attainment across race/ethnicity groups.\n\nI tested these using a two-sample t-test (comparing blood pressure by sex), a one-way ANOVA with Tukey pairwise comparisons (blood pressure across six race/ethnicity groups), a 2x2 table analysis (smoking history and diabetes diagnosis, using relative risk, odds ratio, and risk difference), and a chi-square test of independence (education level and race/ethnicity).\nEvery one of these hypotheses was confirmed by the data, all with strong statistical significance. Men had meaningfully higher blood pressure than women. Non-Hispanic Black adults stood apart from every other racial/ethnic group with the highest average blood pressure. Smokers had a notably elevated diabetes rate compared to non-smokers. And Finally, education level varied substantially by race/ethnicity, mirroring documented structural patterns in the U.S."
+  },
+  {
+    "objectID": "blog/posts/project-a-writeup/index.html#study-2-can-bmi-predict-blood-pressure",
+    "href": "blog/posts/project-a-writeup/index.html#study-2-can-bmi-predict-blood-pressure",
+    "title": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings",
+    "section": "Study 2: Can BMI Predict Blood Pressure?",
+    "text": "Study 2: Can BMI Predict Blood Pressure?\nFor my second study, I shifted from comparing groups to building a predictive model. My research question was: how effectively does BMI predict systolic blood pressure, after adjusting for age, sex, race/ethnicity, education, smoking, and diabetes status?\nThis required a different approach. I split my cleaned data into a 75% training sample and a 25% test sample, applied single imputation (using the mice package) to handle a small amount of missing data in a few predictors, and found that my outcome (blood pressure) needed a log transformation to correct for right-skew before modeling.\nI then fit two competing linear regression models. First, a “Big Model” with all seven candidate predictors, and a “Small Model” dropping smoking and diabetes status, which had turned out not to be meaningful predictors once the others were included.\nThe result surprised me. I had expected BMI to remain a clearly significant predictor of blood pressure even after adjustment, but it turned out to be only marginally associated (p = 0.082) once age, sex, race/ethnicity, and education were accounted for. Age emerged as by far the strongest predictor. When I compared my two models, both in-sample (R², AIC, BIC, residual diagnostics) and on the held-out test sample (RMSPE, MAPE, validated R²), the simpler model performed just as well as the full one, meaning smoking and diabetes status added no real predictive value here."
+  },
+  {
+    "objectID": "blog/posts/project-a-writeup/index.html#building-the-dashboard",
+    "href": "blog/posts/project-a-writeup/index.html#building-the-dashboard",
+    "title": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings",
+    "section": "Building the Dashboard",
+    "text": "Building the Dashboard\nThe dashboard on this site separates both studies into two tabs, each with a short background card, the key visualizations, and a bullet-point summary of findings. I deliberately kept it lighter than the full statistical reports (which include every assumption check, full model output, and detailed write-up). I wanted to provide a quick, visual overview that a reader could scan in under a minute, while the complete analysis is in the Quarto reports."
+  },
+  {
+    "objectID": "blog/posts/project-a-writeup/index.html#reflections",
+    "href": "blog/posts/project-a-writeup/index.html#reflections",
+    "title": "Building My Blood Pressure Dashboard: Process, Hypotheses, and Findings",
+    "section": "Reflections",
+    "text": "Reflections\nIf I were to extend this work, I’d want to test whether BMI’s relationship with blood pressure changes with age (an interaction effect), and consider a more direct measure of body composition, like waist circumference, instead of BMI alone, as BMI isn’t as effective as a measure as some other may be. This project reinforced something I already knew from Study 1: demographic and social factors such as age, race, education, often carry more predictive weight for health outcomes than a single biometric measurement such as BMI, and any model that ignores them risks overstating how much a variable like BMI might predict on its own."
   }
 ]

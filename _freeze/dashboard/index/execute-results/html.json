@@ -1,0 +1,17 @@
+{
+  "hash": "59f6d86f7e2802757ff9287b22b35e34",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Blood Pressure and Cardiometabolic Risk in U.S. Adults\"\nauthor: \"Andrew Qian\"\ndate: last-modified\nformat: \n  dashboard:\n    theme: pulse\n    orientation: rows\nexecute:\n  echo: false\n  warning: false\n  message: false\n---\n\n\n::: {.cell}\n\n:::\n\n\n# Study 1: Group Comparisons\n\n## Row {height=\"15%\"}\n\n::: {.card}\nThis section compares systolic blood pressure and cardiometabolic risk factors across demographic and lifestyle groups in a sample of 6,387 U.S. adults (NHANES 2017–March 2020).\n:::\n\n## Row\n\n\n::: {.cell title='SBP by Sex'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=768}\n:::\n:::\n\n\n\n::: {.cell title='SBP by Race/Ethnicity'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=768}\n:::\n:::\n\n\n## Row\n\n\n::: {.cell title='Smoking and Diabetes Diagnosis'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=768}\n:::\n:::\n\n\n::: {.card}\n### Key Findings\n\n- Men had significantly higher mean systolic blood pressure than women (p < 0.001).\n- Non-Hispanic Black adults had significantly higher mean systolic blood pressure than every other racial/ethnic group (p < 0.001).\n- Smokers showed a notably higher diabetes rate than non-smokers (p < 0.001).\n- Education level and race/ethnicity were significantly associated (χ² = 1046.4, p < 0.001).\n:::\n\n# Study 2: Predicting Blood Pressure\n\n## Row {height=\"15%\"}\n\n::: {.card}\nThis section builds a regression model to test how well BMI predicts systolic blood pressure, adjusting for age, sex, race/ethnicity, and education, in a sample of 7,029 U.S. adults.\n:::\n\n## Row\n\n\n::: {.cell title='Distribution of log(Systolic Blood Pressure)'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-4-1.png){width=768}\n:::\n:::\n\n\n\n::: {.cell title='Predicted vs. Observed SBP (Test Sample)'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-5-1.png){width=768}\n:::\n:::\n\n\n## Row\n\n::: {.card}\n### Research Question\n\nHow effectively does BMI predict systolic blood pressure in U.S. adults, after adjusting for age, sex, race/ethnicity, education, smoking status, and diabetes diagnosis?\n\n### Key Findings\n\n- After adjusting for other factors, **BMI was only marginally associated** with blood pressure (p = 0.082) — its raw association appears largely explained by age, sex, race, and education.\n- **Age was the strongest predictor** of systolic blood pressure by far.\n- A simplified model performed **just as well** as the full model (R² ≈ 0.225 for both), on both training and test data.\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
